@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alin\\source\\repos\\AskForum\\AskForum.csproj": {}
+    "C:\\Users\\Alin\\source\\repos\\AskForumRepository\\AskForum\\AskForum.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alin\\source\\repos\\AskForum\\AskForum.csproj": {
+    "C:\\Users\\Alin\\source\\repos\\AskForumRepository\\AskForum\\AskForum.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alin\\source\\repos\\AskForum\\AskForum.csproj",
+        "projectUniqueName": "C:\\Users\\Alin\\source\\repos\\AskForumRepository\\AskForum\\AskForum.csproj",
         "projectName": "AskForum",
-        "projectPath": "C:\\Users\\Alin\\source\\repos\\AskForum\\AskForum.csproj",
+        "projectPath": "C:\\Users\\Alin\\source\\repos\\AskForumRepository\\AskForum\\AskForum.csproj",
         "packagesPath": "C:\\Users\\Alin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alin\\source\\repos\\AskForum\\obj\\",
+        "outputPath": "C:\\Users\\Alin\\source\\repos\\AskForumRepository\\AskForum\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Alin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,25 +38,19 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.1, )"
+              "version": "[3.1.3, )"
             }
           },
           "imports": [
