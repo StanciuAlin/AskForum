@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataAccess.DataModel
+namespace ApplicationLogic.DataModel
 {
-    class ContactMe
+    public class ContactMe
     {
+        public long ContactMeId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string MessageContent { get; set; }
         public DateTime Date { get; set; }
-        public long IdContactRequest { get; set; }
     }
 }

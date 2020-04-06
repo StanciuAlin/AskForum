@@ -1,4 +1,4 @@
-﻿using DataAccess.DataModel;
+﻿using ApplicationLogic.DataModel;
 using System.Collections.Generic;
 
 namespace ApplicationLogic.Abstractions

@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataAccess.DataModel
+namespace ApplicationLogic.DataModel
 {
-    class Ad
+    public class Ad
     {
-        public long IdAd { get; set; }
+        public long AdId { get; set; }
         public DateTime Date { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }

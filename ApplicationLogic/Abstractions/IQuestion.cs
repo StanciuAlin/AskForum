@@ -1,4 +1,4 @@
-﻿using DataAccess.DataModel;
+﻿using ApplicationLogic.DataModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
