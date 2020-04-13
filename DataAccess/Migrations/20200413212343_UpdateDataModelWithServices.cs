@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DataAccess.Migrations
 {
-    public partial class InitialDataModel : Migration
+    public partial class UpdateDataModelWithServices : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -11,8 +11,7 @@ namespace DataAccess.Migrations
                 name: "Admins",
                 columns: table => new
                 {
-                    AdminId = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AdminId = table.Column<Guid>(nullable: false),
                     UserName = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true)
@@ -26,61 +25,43 @@ namespace DataAccess.Migrations
                 name: "ContactMes",
                 columns: table => new
                 {
-                    ContactMeId = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ContactMeId = table.Column<Guid>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     MessageContent = table.Column<string>(nullable: true),
-                    Date = table.Column<DateTime>(nullable: false),
-                    AdminId = table.Column<int>(nullable: true)
+                    Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ContactMes", x => x.ContactMeId);
-                    table.ForeignKey(
-                        name: "FK_ContactMes_Admins_AdminId",
-                        column: x => x.AdminId,
-                        principalTable: "Admins",
-                        principalColumn: "AdminId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
-                    UserId = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<Guid>(nullable: false),
                     UserName = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
-                    Rating = table.Column<int>(nullable: false),
-                    AdminId = table.Column<int>(nullable: true)
+                    Rating = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.UserId);
-                    table.ForeignKey(
-                        name: "FK_Users_Admins_AdminId",
-                        column: x => x.AdminId,
-                        principalTable: "Admins",
-                        principalColumn: "AdminId",
-                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Ads",
                 columns: table => new
                 {
-                    AdId = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    AdId = table.Column<Guid>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
-                    IdUser = table.Column<long>(nullable: false),
-                    UserId = table.Column<long>(nullable: true)
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -90,22 +71,20 @@ namespace DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Articles",
                 columns: table => new
                 {
-                    ArticleId = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ArticleId = table.Column<Guid>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
-                    IdUser = table.Column<long>(nullable: false),
-                    UserId = table.Column<long>(nullable: true)
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -115,22 +94,20 @@ namespace DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Questions",
                 columns: table => new
                 {
-                    QuestionId = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    QuestionId = table.Column<Guid>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Title = table.Column<string>(nullable: true),
                     Content = table.Column<string>(nullable: true),
                     Category = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
-                    IdUser = table.Column<long>(nullable: false),
-                    UserId = table.Column<long>(nullable: true)
+                    UserId = table.Column<Guid>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -140,23 +117,21 @@ namespace DataAccess.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "UserId",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Comments",
                 columns: table => new
                 {
-                    CommentId = table.Column<long>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CommentId = table.Column<Guid>(nullable: false),
                     Date = table.Column<DateTime>(nullable: false),
                     Content = table.Column<string>(nullable: true),
                     Rating = table.Column<int>(nullable: false),
-                    IdUser = table.Column<long>(nullable: false),
-                    AdId = table.Column<long>(nullable: true),
-                    ArticleId = table.Column<long>(nullable: true),
-                    QuestionId = table.Column<long>(nullable: true),
-                    UserId = table.Column<long>(nullable: true)
+                    UserId = table.Column<Guid>(nullable: true),
+                    AdId = table.Column<Guid>(nullable: true),
+                    ArticleId = table.Column<Guid>(nullable: true),
+                    QuestionId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -218,23 +193,16 @@ namespace DataAccess.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ContactMes_AdminId",
-                table: "ContactMes",
-                column: "AdminId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Questions_UserId",
                 table: "Questions",
                 column: "UserId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Users_AdminId",
-                table: "Users",
-                column: "AdminId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Admins");
+
             migrationBuilder.DropTable(
                 name: "Comments");
 
@@ -252,9 +220,6 @@ namespace DataAccess.Migrations
 
             migrationBuilder.DropTable(
                 name: "Users");
-
-            migrationBuilder.DropTable(
-                name: "Admins");
         }
     }
 }
