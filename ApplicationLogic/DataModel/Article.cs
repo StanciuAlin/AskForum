@@ -6,13 +6,13 @@ namespace ApplicationLogic.DataModel
 {
     public class Article
     {
-        public long ArticleId { get; set; }
+        public Guid ArticleId { get; set; }
         public DateTime Date { get; set; }
         public string Title { get; set; }
         public string Content { get; set; }
         public string Category { get; set; }
         public int Rating { get; set; }
-        public long IdUser { get; set; }
-        public ICollection<Comment> IdComments { get; private set; }
+        public Guid UserId { get; set; }
+        public ICollection<Comment> Comments { get; private set; }
     }
 }

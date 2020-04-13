@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DataAccess;
+using ApplicationLogic.Abstractions;
+using ApplicationLogic.DataModel;
 
 namespace AskForum
 {
@@ -32,6 +34,14 @@ namespace AskForum
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IContactMeRepository, ContactMeRepository>();
+            services.AddScoped<IArticleRepository, ArticleRepository>();
+            services.AddScoped<IAdRepository, AdRepository>();
+            services.AddScoped<IAdminRepository, AdminRepository>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

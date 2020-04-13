@@ -8,7 +8,7 @@ namespace DataAccess
 {
     public class BaseRepository<T> : IRepository<T> where T : class, new()
     {
-        private readonly AskForumDbContext dbContext;
+        protected readonly AskForumDbContext dbContext;
         public BaseRepository(AskForumDbContext dbContext)
         {
             this.dbContext = dbContext;
@@ -16,12 +16,14 @@ namespace DataAccess
         public T Add(T itemToAdd)
         {
             var entity = dbContext.Add<T>(itemToAdd);
+            dbContext.SaveChanges();
             return entity.Entity;
         }
 
         public bool Delete(T itemToDelete)
         {
             dbContext.Remove<T>(itemToDelete);
+            dbContext.SaveChanges();
             return true;
         }
 
@@ -30,9 +32,15 @@ namespace DataAccess
             return dbContext.Set<T>().AsEnumerable();
         }
 
+        public T Get(Guid id)
+        {
+            return dbContext.Set<T>().Find(id);
+        }
+
         public T Update(T itemToUpdate)
         {
             var entity = dbContext.Update<T>(itemToUpdate);
+            dbContext.SaveChanges();
             return entity.Entity;
         }
     }

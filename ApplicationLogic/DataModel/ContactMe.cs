@@ -6,7 +6,7 @@ namespace ApplicationLogic.DataModel
 {
     public class ContactMe
     {
-        public long ContactMeId { get; set; }
+        public Guid ContactMeId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string MessageContent { get; set; }

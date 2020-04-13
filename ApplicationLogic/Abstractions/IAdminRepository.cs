@@ -5,7 +5,8 @@ using System.Text;
 
 namespace ApplicationLogic.Abstractions
 {
-    interface IAdmin: IRepository<Admin>
+    public interface IAdminRepository: IRepository<Admin>
     {
+        Admin GetAdminByUserId(Guid adminId);
     }
 }
