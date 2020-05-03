@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ApplicationLogic.Services
 {
-    class QuestionService
+    public class QuestionService
     {
         private IQuestionRepository questionRepository;
 

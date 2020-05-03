@@ -13,6 +13,12 @@ namespace DataAccess
         {
         }
 
+        public IEnumerable<Question> GetQuestionsByUserId(Guid userId)
+        {
+            return dbContext.Questions
+                            .Where(question => question.UserId == userId);
+        }
+
         Question IQuestionRepository.GetQuestionByUserId(Guid userId)
         {
             return dbContext.Questions
@@ -20,7 +26,7 @@ namespace DataAccess
                             .SingleOrDefault();
         }
 
-        IEnumerable<Comment> IQuestionRepository.GetQuestionComments(Question question)
+        IEnumerable<Comment> IQuestionRepository.GetQuestionComments(Question question) //id intrebare
         {
             throw new NotImplementedException();
         }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ApplicationLogic.Services
 {
-    class ContactMeService
+    public class ContactMeService
     {
         private IContactMeRepository contactMeRepository;
         public ContactMeService(IContactMeRepository contactMeRepository)

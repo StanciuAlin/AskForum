@@ -1,5 +1,6 @@
 ﻿using ApplicationLogic.Abstractions;
 using ApplicationLogic.DataModel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,14 +14,26 @@ namespace DataAccess
         {
         }
 
-        Article IArticleRepository.GetArticleByUserId(Guid user)
+        Article GetArticleByUserId(Guid user)
         {
-            return dbContext.Articles
+            return dbContext.Articles.Include(a => a.Comments).ThenInclude(c => c.User)
                             .Where(article => article.UserId == user)
                             .SingleOrDefault();
         }
 
-        IEnumerable<Comment> IArticleRepository.GetArticleComments(Article article)
+        Article IArticleRepository.GetArticleByUserId(Guid user)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Comment> GetArticleComments(Guid articleId)
+        {
+            var article = dbContext.Articles.Include(a => a.Comments).ThenInclude(c => c.User).Where(a => a.ArticleId == articleId).FirstOrDefault();
+
+            return article.Comments;
+        }
+
+        IEnumerable<Comment> IArticleRepository.GetArticleComments(Guid articleId)
         {
             throw new NotImplementedException();
         }

@@ -7,13 +7,15 @@ using System.Text;
 
 namespace ApplicationLogic.Services
 {
-    class AdminService
+    public class AdminService
     {
         IAdminRepository adminRepository;
+        IAdRepository adRepository;
 
-        public AdminService(IAdminRepository adminRepository)
+        public AdminService(IAdminRepository adminRepository, IAdRepository adRepository)
         {
             this.adminRepository = adminRepository;
+            this.adRepository = adRepository;
         }
 
         public Admin GetAdminByUserId(string adminId)
@@ -31,6 +33,20 @@ namespace ApplicationLogic.Services
             }
 
             return admin;
+        }
+
+        public void RemoveAd(Guid userId, Guid adId)
+        {
+            //validari pentru admin si apoi daca exista ad ul
+
+            Ad ad = adRepository.Get(adId);
+            
+            if (ad == null)
+            {
+                throw new EntityNotFoundException(adId);
+            }
+            adRepository.Delete(ad);
+
         }
     }
 }

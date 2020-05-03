@@ -14,35 +14,6 @@ namespace DataAccess
         {
         }
 
-        void IUserRepository.AddAd(string userId, string adTitle, string adContent, string adCategory)
-        {
-        }
-
-        void IUserRepository.AddArticle(string userId, string articleTitle, string articleContent, string articleCategory)
-        {
-            throw new NotImplementedException();
-        }
-
-        void IUserRepository.AddQuestion(string userId, string questionTitle, string questionContent, string questionCategory)
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerable<Ad> IUserRepository.GetAds(Guid userId)
-        {
-            return dbContext.Ads.Where(ad => ad.UserId == userId);
-        }
-
-        IEnumerable<Article> IUserRepository.GetArticles(Guid userId)
-        {
-            return dbContext.Articles.Where(article => article.UserId == userId);
-        }
-
-        IEnumerable<Question> IUserRepository.GetQuestions(Guid userId)
-        {
-            return dbContext.Questions.Where(user => user.UserId == userId);
-        }
-
         ApplicationLogic.DataModel.User IUserRepository.GetUserByUserId(Guid userId)
         {
             return dbContext.Users

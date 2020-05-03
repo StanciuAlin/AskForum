@@ -7,9 +7,10 @@ using System.Linq;
 
 namespace ApplicationLogic.Services
 {
-    class AdService
+    public class AdService
     {
         private IAdRepository adRepository;
+        private IUserRepository userRepository;
 
         public AdService(IAdRepository adRepository)
         {
@@ -33,10 +34,27 @@ namespace ApplicationLogic.Services
             return ad;
         }
 
-        IEnumerable<Comment> GetAdComments(Ad ad)
+        IEnumerable<Comment> GetAdComments(Ad ad) // get dupa AdId
         {
             //return all comments for that specific question given as parameter
             return ad.Comments.AsEnumerable<Comment>();
+        }
+
+        public void AddAd(Guid adId, DateTime date, string title, string content, string category, Guid userId)
+        {
+            Guid userIdGuid = Guid.Empty;
+            if (!Guid.TryParse(Convert.ToString(userId), out userIdGuid))
+            {
+                throw new Exception("Invalid Guid Format");
+            }
+            var user = userRepository.GetUserByUserId(userIdGuid);
+            if (user == null)
+            {
+                throw new EntityNotFoundException(userIdGuid);
+            }
+            adRepository.Add(new Ad() { AdId = Guid.NewGuid(), Date = date, Title= title, Content = content,
+                Category = category, Rating = 0, UserId = userId});
+
         }
     }
 }

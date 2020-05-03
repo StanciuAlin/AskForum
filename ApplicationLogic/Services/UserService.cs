@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace ApplicationLogic.Services
 {
-    class UserService
+    public class UserService
     {
         private readonly IUserRepository userRepository;
         private readonly IQuestionRepository questionRepository;
@@ -50,9 +50,9 @@ namespace ApplicationLogic.Services
                 throw new Exception("Invalid Guid Format");
             }
 
-            return questionRepository.GetAll()
-                            .Where(question => question != null && question.UserId == userIdGuid)
-                            .AsEnumerable();
+            return questionRepository.GetQuestionsByUserId(userIdGuid);
+
+
         }
 
         public IEnumerable<Article> GetArticles(string userId)

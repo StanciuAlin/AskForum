@@ -8,6 +8,6 @@ namespace ApplicationLogic.Abstractions
     public interface IArticleRepository: IRepository<Article>
     {
         Article GetArticleByUserId(Guid user);
-        IEnumerable<Comment> GetArticleComments(Article article);
+        IEnumerable<Comment> GetArticleComments(Guid articleId);
     }
 }

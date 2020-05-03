@@ -1,5 +1,6 @@
 ﻿using ApplicationLogic.Abstractions;
 using ApplicationLogic.DataModel;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,12 @@ namespace DataAccess
         public AdRepository(AskForumDbContext dbContext) : base(dbContext)
         {
         }
+
+        public void AddAd(Guid adId, DateTime date, string title, string content, string category, Guid userId)
+        {
+            //throw new NotImplementedException();
+        }
+
         Ad IAdRepository.GetAdByUserId(Guid userId)
         {
             return dbContext.Ads

@@ -8,5 +8,6 @@ namespace ApplicationLogic.Abstractions
     {
         Ad GetAdByUserId(Guid userId);
         IEnumerable<Comment> GetAdComments(Ad ad);
+        void AddAd(Guid adId, DateTime date, string title, string content, string category, Guid userId);
     }
 }

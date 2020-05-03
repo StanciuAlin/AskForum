@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ApplicationLogic.Services
 {
-    class ArticleService
+    public class ArticleService
     {
         private IArticleRepository articleRepository;
 
@@ -33,7 +33,7 @@ namespace ApplicationLogic.Services
             return article;
         }
 
-        IEnumerable<Comment> GetArticleComments(Article article)
+        IEnumerable<Comment> GetArticleComments(Article article) //get dupa ArticleId
         {
             //return all comments for that specific article given as parameter
             return article.Comments.AsEnumerable<Comment>();
