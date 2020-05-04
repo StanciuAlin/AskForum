@@ -1,0 +1,20 @@
+﻿body {
+    background-image: url("../content/static/photography.png");
+}
+
+header, footer {
+    background-color: #f3f3f3;
+}
+
+.logo-ind {
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.ind-car-ph1 {
+    background-image: url("../content/static/stackIndex.png");
+}
+
+logo-wrap {
+    padding-left: 1%;
+}
