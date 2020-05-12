@@ -54,12 +54,14 @@ header {
         header .navbar .navbar-nav.absolute-right {
           position: relative;
           right: inherit; } }
-    header .navbar .nav-link {
-      padding: 1.7rem 1rem;
-      font-size: 16px;
-      outline: none !important;
-      text-transform: uppercase;
-      letter-spacing: .05em; }
+header .navbar .nav-link {
+    padding: 1.7rem 1rem;
+    font-size: 20px;
+    color: #6610F2;
+    outline: none !important;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+}
       @media (max-width: 991.98px) {
         header .navbar .nav-link {
           padding: 1.7rem 1rem; } }
@@ -1245,21 +1247,22 @@ blockquote {
   overflow-x: hidden; }
 
 .site-footer {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  padding: 5em 0;
-  background: #262626; }
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 5em 0;
+    background: #262626;
+}
   .site-footer .post-entry-sidebar ul li a h4 {
-    color: #fff; }
+    color: white; }
   .site-footer .footer-social li a > span {
     width: 30px; }
   .site-footer a {
-    color: #fff; }
+    color: white; }
     .site-footer a:hover {
       opacity: .5; }
   .site-footer h3 {
-    color: #fff;
+    color: white;
     margin-bottom: 30px;
     font-size: 14px;
     text-transform: uppercase;

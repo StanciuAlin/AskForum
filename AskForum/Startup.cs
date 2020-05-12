@@ -42,7 +42,7 @@ namespace AskForum
             services.AddScoped<IAdRepository, AdRepository>();
             services.AddScoped<IAdminRepository, AdminRepository>();
 
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
         }
 

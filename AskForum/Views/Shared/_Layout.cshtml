@@ -21,30 +21,24 @@
     <!-- Theme Style -->
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        header .navbar .nav-link {
+            padding: 1.7rem 1rem;
+            font-size: 20px;
+            font-weight: 700;
+            color: #6610F2 !important;
+            outline: none !important;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+        }
+        .site-footer {
+            background: #262626 !important;
+        }
+    </style>
+
 </head>
 <body>
     <header role="banner">
-
-        <div class="top-bar">
-            <div class="container">
-                <div class="row">
-                    <div class="col-9 social">
-                        <a href="http://twitter.com/"><span class="fa fa-twitter"></span></a>
-                        <a href="http://facebook.com/"><span class="fa fa-facebook"></span></a>
-                        <a href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a>
-                        <a href="https://www.youtube.com/"><span class="fa fa-youtube-play"></span></a>
-                    </div>
-                    <div class="col-3 search-top">
-                        <!-- <a href="#"><span class="fa fa-search"></span></a> -->
-                        <form action="#" class="search-top-form">
-                            <span class="icon fa fa-search"></span>
-                            <input type="text" id="s" placeholder="Type keyword to search...">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="container logo-wrap">
             <div class="row logo-ind">
                 <div class="col-12 text-center">
@@ -61,7 +55,7 @@
                 <div class="collapse navbar-collapse" id="navbarMenu">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
+                            <a class="nav-link active" asp-controller="HomeController">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Articles</a>
@@ -74,7 +68,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions</a>
                             <div class="dropdown-menu" aria-labelledby="dropdown05">
                                 <a class="dropdown-item" href="categoryAll.html">Latest questions</a>
-                                <a class="dropdown-item" href="errorPage.html">Ask a question</a>
+                                <a class="dropdown-item" asp-page="/AdsController">Ask a question</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
@@ -102,6 +96,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="contact.html">Contact</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        </li>
                     </ul>
 
                 </div>
@@ -122,7 +122,7 @@
                 <div class="col-md-4">
                     <h3>About Us</h3>
                     <p class="mb-4">
-                        <img src="indexFooterImg.jpg" alt="Image placeholder" class="img-fluid">
+                        <img src="~/content/static/indexFooterImg.jpg" alt="Image placeholder" class="img-fluid">
                     </p>
 
                     <p> We build products that empower developers and connect them to solutions that enable productivity, growth, and discovery. <a href="#">Read More</a></p>

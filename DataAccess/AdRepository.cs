@@ -17,6 +17,13 @@ namespace DataAccess
         public void AddAd(Guid adId, DateTime date, string title, string content, string category, Guid userId)
         {
             //throw new NotImplementedException();
+            Ad ad = new Ad()
+            {
+                AdId = adId
+                //
+            };
+            Add(ad);
+
         }
 
         Ad IAdRepository.GetAdByUserId(Guid userId)

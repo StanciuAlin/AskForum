@@ -52,8 +52,16 @@ namespace ApplicationLogic.Services
             {
                 throw new EntityNotFoundException(userIdGuid);
             }
-            adRepository.Add(new Ad() { AdId = Guid.NewGuid(), Date = date, Title= title, Content = content,
-                Category = category, Rating = 0, UserId = userId});
+            adRepository.Add(new Ad()
+            {
+                AdId = Guid.NewGuid(),
+                Date = date,
+                Title = title,
+                Content = content,
+                Category = category,
+                Rating = 0,
+                UserId = userId
+            });
 
         }
     }
